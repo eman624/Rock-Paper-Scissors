@@ -1,5 +1,4 @@
 function playRound(playerSelection, computerSelection) {
-
   if (playerSelection === computerSelection) {
     return "tie";
   }
@@ -50,10 +49,30 @@ function playGame() {
   const playerSelection = getPlayerChoice();
   const computerSelection = getComputerChoice();
 
-  playRound(playerSelection, computerSelection);
-  console.log(playRound(playerSelection, computerSelection));
+  const outCome = playRound(playerSelection, computerSelection);
+  console.log(outCome);
+  return outCome;
+}
+
+const Score = { playerScore: 0, computerScore: 0 };
+
+function checkScore(Score) {
+  let check = playGame();
+  let checkWin = check.search("Win");
+  let checkLost = check.search("Lose");
+
+  if (checkWin != -1) {
+    Score.playerScore++;
+  }
+  if (checkLost != -1) {
+    Score.computerScore++;
+  }
+
 }
 
 for (let i = 1; i <= 5; i++) {
-  playGame();
+  checkScore(Score);
 }
+
+console.log(Score.playerScore);
+console.log(Score.computerScore);

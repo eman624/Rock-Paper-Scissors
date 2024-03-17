@@ -45,10 +45,11 @@ function getComputerChoice() {
   }
 }
 
+const Score = { playerScore: 0, computerScore: 0 };
+
 function playGame() {
   const playerSelection = getPlayerChoice();
   const computerSelection = getComputerChoice();
-  const Score = { playerScore: 0, computerScore: 0 };
 
   const roundOutCome = playRound(playerSelection, computerSelection);
   checkScore(roundOutCome, Score);

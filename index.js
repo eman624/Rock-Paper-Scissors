@@ -54,6 +54,7 @@ function playGame() {
   const roundOutCome = playRound(playerSelection, computerSelection);
   checkScore(roundOutCome, Score);
   console.log(roundOutCome);
+
   return roundOutCome;
 }
 

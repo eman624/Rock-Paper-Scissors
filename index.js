@@ -45,19 +45,20 @@ function getComputerChoice() {
   }
 }
 
+const Score = { playerScore: 0, computerScore: 0 };
+
 function playGame() {
   const playerSelection = getPlayerChoice();
   const computerSelection = getComputerChoice();
 
-  const outCome = playRound(playerSelection, computerSelection);
-  console.log(outCome);
-  return outCome;
+  const roundOutCome = playRound(playerSelection, computerSelection);
+  checkScore(roundOutCome, Score);
+  console.log(roundOutCome);
+  return roundOutCome;
 }
 
-const Score = { playerScore: 0, computerScore: 0 };
-
-function checkScore(Score) {
-  let check = playGame();
+function checkScore(outcome, Score) {
+  let check = outcome;
   let checkWin = check.search("Win");
   let checkLost = check.search("Lose");
 
@@ -67,11 +68,10 @@ function checkScore(Score) {
   if (checkLost != -1) {
     Score.computerScore++;
   }
-
 }
 
 for (let i = 1; i <= 5; i++) {
-  checkScore(Score);
+  playGame();
 }
 
 console.log(Score.playerScore);

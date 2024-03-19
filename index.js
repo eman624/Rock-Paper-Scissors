@@ -29,29 +29,14 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function getPlayerChoice() {
-  //   let choice = prompt("Enter Rock, Paper, or Scissors");
-  //   return choice.toUpperCase();
+  const buttons = document.querySelectorAll("button");
 
-  const choice = "NONE";
-
-  const rock = document.querySelector(".rock");
-  const paper = document.querySelector(".paper");
-  const scissors = document.querySelector(".scissors");
-
-  rock.addEventListener("click", () => {
-    alert("rock");
-    return "ROCK";
-  });
-  paper.addEventListener("click", () => {
-    alert("paper");
-    return "PAPER";
-  });
-  scissors.addEventListener("click", () => {
-    alert("scissors");
-    return "SCISSORS";
-  });
+  for (btn of buttons) {
+    btn.addEventListener("click", function () {
+		return this.textContent;
+    });
+  }
 }
-
 function getComputerChoice() {
   let randomNum = Math.floor(Math.random() * 3);
 
@@ -89,5 +74,7 @@ function checkScore(outcome, Score) {
   }
 }
 
-console.log(Score.playerScore);
-console.log(Score.computerScore);
+playGame();
+
+// console.log(Score.playerScore);
+// console.log(Score.computerScore);

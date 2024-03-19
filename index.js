@@ -32,16 +32,14 @@ function getPlayerChoice() {
     });
   }
 }
-function getComputerChoice() {
-  let randomNum = Math.floor(Math.random() * 3);
 
-  if (randomNum === 0) {
-    return "ROCK";
-  } else if (randomNum === 1) {
-    return "PAPER";
-  } else {
-    return "SCISSORS";
-  }
+const gameOptions = { ROCK: "ROCK", PAPER: "PAPER", SCISSORS: "SCISSORS" };
+
+function getComputerChoice() {
+  var randNum = Math.floor(Math.random() * Object.keys(gameOptions).length);
+  var randOption = gameOptions[Object.keys(gameOptions)[randNum]];
+
+  return randOption;
 }
 
 const Score = { playerScore: 0, computerScore: 0 };
@@ -69,7 +67,7 @@ function checkScore(outcome, Score) {
   }
 }
 
-playGame();
+getComputerChoice();
 
 // console.log(Score.playerScore);
 // console.log(Score.computerScore);

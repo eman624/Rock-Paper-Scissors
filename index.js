@@ -29,8 +29,27 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function getPlayerChoice() {
-  let choice = prompt("Enter Rock, Paper, or Scissors");
-  return choice.toUpperCase();
+  //   let choice = prompt("Enter Rock, Paper, or Scissors");
+  //   return choice.toUpperCase();
+
+  const choice = "NONE";
+
+  const rock = document.querySelector(".rock");
+  const paper = document.querySelector(".paper");
+  const scissors = document.querySelector(".scissors");
+
+  rock.addEventListener("click", () => {
+    alert("rock");
+    return "ROCK";
+  });
+  paper.addEventListener("click", () => {
+    alert("paper");
+    return "PAPER";
+  });
+  scissors.addEventListener("click", () => {
+    alert("scissors");
+    return "SCISSORS";
+  });
 }
 
 function getComputerChoice() {
@@ -46,7 +65,6 @@ function getComputerChoice() {
 }
 
 const Score = { playerScore: 0, computerScore: 0 };
-
 function playGame() {
   const playerSelection = getPlayerChoice();
   const computerSelection = getComputerChoice();
@@ -69,10 +87,6 @@ function checkScore(outcome, Score) {
   if (checkLost != -1) {
     Score.computerScore++;
   }
-}
-
-for (let i = 1; i <= 5; i++) {
-  playGame();
 }
 
 console.log(Score.playerScore);

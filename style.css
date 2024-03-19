@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  gap: 20px;
+}
+
+.button {
+  font-size: 1.2rem;
+  font-weight: 800;
+  padding: 70px 90px;
+  cursor: pointer;
+}

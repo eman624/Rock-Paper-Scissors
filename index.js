@@ -24,12 +24,16 @@ function playRound(playerSelection, computerSelection) {
 
 function getPlayerChoice() {
   const buttons = document.querySelectorAll("button");
+  const pressedButton = undefined;
 
-  for (btn of buttons) {
-    btn.addEventListener("click", function () {
-      return this.textContent;
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      alert(button.id);
+      pressedButton = button.id;
     });
-  }
+  });
+
+  console.log(pressedButton);
 }
 
 const gameOptions = { ROCK: "ROCK", PAPER: "PAPER", SCISSORS: "SCISSORS" };
@@ -42,15 +46,18 @@ function getComputerChoice() {
 }
 
 const Score = { playerScore: 0, computerScore: 0 };
+
 function playGame() {
   const playerSelection = getPlayerChoice();
-  const computerSelection = getComputerChoice();
+  //   const computerSelection = getComputerChoice();
 
-  const roundOutCome = playRound(playerSelection, computerSelection);
-  checkScore(roundOutCome, Score);
-  console.log(roundOutCome);
+  //   const roundOutCome = playRound(playerSelection, computerSelection);
+  console.log(`Player selection: ${playerSelection}`);
+  //   console.log(`Computer selection: ${computerSelection}`);
+  //   checkScore(roundOutCome, Score);
+  //   console.log(roundOutCome);
 
-  return roundOutCome;
+  //   return roundOutCome;
 }
 
 function checkScore(outcome, Score) {
@@ -66,7 +73,7 @@ function checkScore(outcome, Score) {
   }
 }
 
-getComputerChoice();
+playGame();
 
 // console.log(Score.playerScore);
 // console.log(Score.computerScore);

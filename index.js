@@ -47,7 +47,7 @@ function setPlayersChoices() {
 }
 
 function playGame() {
-  setPlayerChoices();
+  setPlayersChoices();
 }
 
 playGame();

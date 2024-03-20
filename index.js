@@ -24,33 +24,30 @@ function getPlayerChoice() {
   const paperBtn = document.getElementById("PAPER");
   const scissorsBtn = document.getElementById("SCISSORS");
 
-	rockBtn.addEventListener("click", => {
-
+  rockBtn.addEventListener("click", () => {
+    alert("Rock!");
   });
   paperBtn.addEventListener("click", function (e) {});
   scissorsBtn.addEventListener("click", function (e) {});
 }
 
 function getComputerChoice() {
-  const gameOptions = { ROCK: "ROCK", PAPER: "PAPER", SCISSORS: "SCISSORS" };
-  let randNum = Math.floor(Math.random() * Object.keys(gameOptions).length);
-  let randOption = gameOptions[Object.keys(gameOptions)[randNum]];
+  const gameOptions = ["ROCK", "PAPER", "SCISSORS"];
+  let randNum = Math.floor(Math.random() * gameOptions.length);
 
-  return randOption;
+  console.log(gameOptions[randNum]);
+
+  return gameOptions[randNum];
 }
 
-
-
 function playGame() {
-//   const playerSelection = getPlayerChoice();
-//   const computerSelection = getComputerChoice();
-
+  //   const playerSelection = getPlayerChoice();
+  const computerSelection = getComputerChoice();
   //   const roundOutCome = playRound(playerSelection, computerSelection);
-  console.log(`Player selection: ${playerSelection}`);
-  console.log(`Computer selection: ${computerSelection}`);
+  //   console.log(`Player selection: ${playerSelection}`);
+  //   console.log(`Computer selection: ${computerSelection}`);
   //   checkScore(roundOutCome, Score);
   //   console.log(roundOutCome);
-
   //   return roundOutCome;
 }
 

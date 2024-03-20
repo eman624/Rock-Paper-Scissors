@@ -1,27 +1,28 @@
-const Score = { playerScore: 0, computerScore: 0 };
+// const Score = { playerScore: 0, computerScore: 0 };
+
+let playerScore = 0;
+let computerScore = 0;
 
 function playRound(playerSelection, computerSelection) {
-  console.log(playerSelection, computerSelection);
-
   if (playerSelection === computerSelection) {
     return "You tie! Neither player wins!";
   } else if (playerSelection === "ROCK" && computerSelection === "SCISSORS") {
-    Score.playerScore++;
+    playerScore++;
     return "You Win! Rock beats Scissors";
   } else if (playerSelection === "ROCK" && computerSelection === "PAPER") {
-    Score.computerScore++;
+    computerScore++;
     return "You Lose! Paper beats Rock";
   } else if (playerSelection === "PAPER" && computerSelection === "ROCK") {
-    Score.playerScore++;
+    playerScore++;
     return "You Win! Paper beats Rock";
   } else if (playerSelection === "PAPER" && computerSelection === "SCISSORS") {
-    Score.computerScore++;
+    computerScore++;
     return "You Lose! Scissors beats Paper";
   } else if (playerSelection === "SCISSORS" && computerSelection === "PAPER") {
-    Score.playerScore++;
+    playerScore++;
     return "You Win! Scissors beats Paper";
   } else if (playerSelection === "SCISSORS" && computerSelection === "ROCK") {
-    Score.computerScore++;
+    computerScore++;
     return "You Lose! Rock beats Scissors";
   }
 }
@@ -42,6 +43,17 @@ function setPlayersChoices() {
       const computerSelection = getComputerChoice();
       const outCome = playRound(playerSelection, computerSelection);
       console.log(outCome);
+
+      console.log(playerScore);
+      console.log(computerScore);
+
+      if (playerScore === computerScore) {
+        console.log("You tie!");
+      } else if (playerScore > computerScore) {
+        console.log("You Win!");
+      } else {
+        console.log("You Lose!");
+      }
     });
   }
 }

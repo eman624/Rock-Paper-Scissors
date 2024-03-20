@@ -44,15 +44,16 @@ function setPlayersChoices() {
       const outCome = playRound(playerSelection, computerSelection);
       console.log(outCome);
 
-      console.log(playerScore);
-      console.log(computerScore);
+      console.log(
+        `player score: ${playerScore}, computer score: ${computerScore}`
+      );
 
-      if (playerScore === computerScore) {
-        console.log("You tie!");
-      } else if (playerScore > computerScore) {
-        console.log("You Win!");
-      } else {
-        console.log("You Lose!");
+      if (playerScore === 5 || computerScore === 5) {
+        if (playerScore > computerScore) {
+          console.log("You are the Winner!");
+        } else {
+          console.log("You are the Loser!");
+        }
       }
     });
   }

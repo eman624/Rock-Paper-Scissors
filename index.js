@@ -36,6 +36,18 @@ function getComputerChoice() {
 
 function setPlayersChoices() {
   const buttons = document.querySelectorAll("button");
+  const body = document.querySelector("body");
+
+  const div = document.createElement("div");
+  div.classList.add("result");
+  body.appendChild(div);
+
+  const h2Winner = document.createElement("h2");
+  h2Winner.classList.add("winner");
+  h2Winner.textContent = "You Win!";
+  const h2Loser = document.createElement("h2");
+  h2Loser.classList.add("loser");
+  h2Loser.textContent = "You Lose!";
 
   for (button of buttons) {
     button.addEventListener("click", function () {
@@ -48,12 +60,20 @@ function setPlayersChoices() {
         `player score: ${playerScore}, computer score: ${computerScore}`
       );
 
-      if (playerScore === 5 || computerScore === 5) {
-        if (playerScore > computerScore) {
-          console.log("You are the Winner!");
-        } else {
-          console.log("You are the Loser!");
-        }
+      if (playerScore === 5) {
+        div.appendChild(h2Winner);
+        playerScore = 0;
+        computerScore = 0;
+        setTimeout(() => {
+          div.removeChild(h2Winner);
+        }, 3000);
+      } else if (computerScore === 5) {
+        div.appendChild(h2Loser);
+        playerScore = 0;
+        computerScore = 0;
+        setTimeout(() => {
+          div.removeChild(h2Loser);
+        }, 3000);
       }
     });
   }

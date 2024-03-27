@@ -42,6 +42,9 @@ function setPlayersChoices() {
   div.classList.add("result");
   body.appendChild(div);
 
+  const score = document.createElement("h2");
+  const winOrLose = document.createElement("h2");
+
   const h2Winner = document.createElement("h2");
   h2Winner.classList.add("winner");
   h2Winner.textContent = "You Win!";
@@ -54,26 +57,16 @@ function setPlayersChoices() {
       const playerSelection = this.textContent;
       const computerSelection = getComputerChoice();
       const outCome = playRound(playerSelection, computerSelection);
-      console.log(outCome);
+      winOrLose.textContent = outCome.toString();
+      div.appendChild(winOrLose);
 
-      console.log(
-        `player score: ${playerScore}, computer score: ${computerScore}`
-      );
+      score.textContent = `Player Score: ${playerScore}, Computer Score: ${computerScore}`;
+      div.appendChild(score);
 
       if (playerScore === 5) {
         div.appendChild(h2Winner);
-        playerScore = 0;
-        computerScore = 0;
-        setTimeout(() => {
-          div.removeChild(h2Winner);
-        }, 3000);
       } else if (computerScore === 5) {
         div.appendChild(h2Loser);
-        playerScore = 0;
-        computerScore = 0;
-        setTimeout(() => {
-          div.removeChild(h2Loser);
-        }, 3000);
       }
     });
   }
